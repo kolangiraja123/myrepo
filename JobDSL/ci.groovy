@@ -8,7 +8,7 @@ pipelineJob('Personal-Monorepo-CI') {
                 git {
                     remote {
                         url('https://github.com/kolangiraja123/myrepo.git')
-                        credentials('Github pat')
+                        credentials('github-pat')
                     }
                     branches('*/main')
                 }
