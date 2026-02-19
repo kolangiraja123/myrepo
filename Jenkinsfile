@@ -22,10 +22,12 @@ pipeline {
             parallel {
                 stage('Build FDM') {
                     when { expression { env.BUILD_FDM == 'true' } }
-                    steps {
-                        echo "Building the FDM module..."
-                        // In a real scenario, you'd run 'dotnet build' here
-                    }
+                        steps 
+                            {
+                                echo "Building FDM Docker Image..."
+                                // This builds the image locally on your laptop
+                                sh "docker build -t fdm-local:latest ./FDM"
+                            }
                 }
                 stage('Build MDM') {
                     when { expression { env.BUILD_MDM == 'true' } }
